@@ -4,8 +4,8 @@ public with sharing class Moto extends Veicolo implements EcoFriendly {
     private Boolean haCarrello;
 
     /* costruttore che chiama il costruttore della classe padre */
-    public Moto(String targa, Integer velocitàMassima, Boolean haCarrello) {
-        super(targa, velocitàMassima);
+    public Moto(String targa, Integer velocitaMassima, Boolean haCarrello) {
+        super(targa, velocitaMassima);
         this.haCarrello = haCarrello;
     }
 
@@ -19,7 +19,7 @@ public with sharing class Moto extends Veicolo implements EcoFriendly {
 
     /* metodo implementato dalla classe padre */
     public override void descrivi() {
-        System.debug('Moto con targa ' + getTarga() + ', velocità massima ' + getVelocitàMassima() + ' km/h, con carrello: ' + getHaCarrello() + '.');
+        System.debug('Moto con targa ' + getTarga() + ', velocità massima ' + getVelocitaMassima() + ' km/h, con carrello: ' + getHaCarrello() + '.');
     }
 
     /* metodo dell'interfaccia EcoFriendly che restituisce true

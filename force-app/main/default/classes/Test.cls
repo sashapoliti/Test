@@ -37,7 +37,7 @@ private class Test {
         la velocità tra le due */
         Auto a2 = new Auto('ABCDEFG', 140, 4);
 
-        System.debug(Auto.confrontaVelocità(a1, a2));
+        System.debug(Auto.confrontaVelocita(a1, a2));
 
         /* testare il metodo isEcologico */
         System.debug(a1.isEcologico());

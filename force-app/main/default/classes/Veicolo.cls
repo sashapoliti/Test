@@ -1,21 +1,21 @@
-abstract virtual with sharing class Veicolo {
+public abstract with sharing class Veicolo {
     
     /* attributi privati */
     private String targa;
-    private Integer velocitàMassima;
+    private Integer velocitaMassima;
 
     /* costruttore pubblico che prende targa e velocitàMassima come parametri e li assegna agli attributi. */
-    public Veicolo(String targa, Integer velocitàMassima) {
+    public Veicolo(String targa, Integer velocitaMassima) {
         this.targa = targa;
-        this.velocitàMassima = velocitàMassima;
+        this.velocitaMassima = velocitaMassima;
     }
 
     /* metodi per incapsulamento */
     public String getTarga() {
         return targa;
     }
-    public Integer getVelocitàMassima() {
-        return velocitàMassima;
+    public Integer getVelocitaMassima() {
+        return velocitaMassima;
     }
 
     /* metodo astratto da implementare nelle classi figlie */

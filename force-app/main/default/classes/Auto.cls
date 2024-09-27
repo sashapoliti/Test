@@ -4,8 +4,8 @@ public with sharing class Auto extends Veicolo implements EcoFriendly {
     private Integer numeroPorte;
 
     /* costruttore che chiama il costruttore della classe padre */
-    public Auto(String targa, Integer velocitàMassima, Integer numeroPorte) {
-        super(targa, velocitàMassima);
+    public Auto(String targa, Integer velocitaMassima, Integer numeroPorte) {
+        super(targa, velocitaMassima);
         this.numeroPorte = numeroPorte;
     }
 
@@ -19,13 +19,13 @@ public with sharing class Auto extends Veicolo implements EcoFriendly {
 
     /* metodo implementato dalla classe padre */
     public override void descrivi() {
-        System.debug('Auto con targa ' + getTarga() + ', velocità massima ' + getVelocitàMassima() + ' km/h e ' + getNumeroPorte() + ' porte.');
+        System.debug('Auto con targa ' + getTarga() + ', velocità massima ' + getVelocitaMassima() + ' km/h e ' + getNumeroPorte() + ' porte.');
     }
 
     /* metodo statica che confronta le velocità massime di
     due auto e restituisce quella con velocità più alta*/
-    public static String confrontaVelocità(Auto a1, Auto a2) {
-        if (a1.getVelocitàMassima() > a2.getVelocitàMassima()) {
+    public static String confrontaVelocita(Auto a1, Auto a2) {
+        if (a1.getVelocitaMassima() > a2.getVelocitaMassima()) {
             return 'Il veoicolo con targa ' + a1.getTarga() + ' è più veloce';
         } else {
             return 'Il veoicolo con targa ' + a2.getTarga() + ' è più veloce';
@@ -35,6 +35,6 @@ public with sharing class Auto extends Veicolo implements EcoFriendly {
     /* metodo dell'interfaccia EcoFriendly che restituisce
     true solo se la velocità massima è inferiore a 150 */
     public Boolean isEcologico() {
-        return getVelocitàMassima() < 150;
+        return getVelocitaMassima() < 150;
     }
 }
