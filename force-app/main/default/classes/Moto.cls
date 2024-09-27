@@ -1,4 +1,4 @@
-public with sharing class Moto extends Veicolo {
+public with sharing class Moto extends Veicolo implements EcoFriendly {
 
     /* attributo privato */
     private Boolean haCarrello;
@@ -20,5 +20,11 @@ public with sharing class Moto extends Veicolo {
     /* metodo implementato dalla classe padre */
     public override void descrivi() {
         System.debug('Moto con targa ' + getTarga() + ', velocità massima ' + getVelocitàMassima() + ' km/h, con carrello: ' + getHaCarrello() + '.');
+    }
+
+    /* metodo dell'interfaccia EcoFriendly che restituisce true
+    se non ha il carrello */
+    public Boolean isEcologico() {
+        return !getHaCarrello();
     }
 }

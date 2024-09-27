@@ -1,4 +1,4 @@
-public with sharing class Auto extends Veicolo {
+public with sharing class Auto extends Veicolo implements EcoFriendly {
 
     /* attributo privato */
     private Integer numeroPorte;
@@ -30,5 +30,11 @@ public with sharing class Auto extends Veicolo {
         } else {
             return 'Il veoicolo con targa ' + a2.getTarga() + ' è più veloce';
         }
+    }
+
+    /* metodo dell'interfaccia EcoFriendly che restituisce
+    true solo se la velocità massima è inferiore a 150 */
+    public Boolean isEcologico() {
+        return getVelocitàMassima() < 150;
     }
 }
