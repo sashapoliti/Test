@@ -29,15 +29,20 @@ public with sharing class MathEx {
                     System.debug('Il quoziente tra ' + a + ' e ' + b + ' è ' + (a / b));
                 }
                 when else {
-                    /* gestione dell'eccezione personalizzata per operazione non esistente*/
+                    /* lancio dell'eccezione personalizzata per operazione non esistente che non interrompe l'esecuzione*/
                     throw new PersException('Operazione ' + operazione + ' non gestibile');
                 }
             }
-        /* catch del caso di divisione per 0 */
+        /* catch del caso di divisione per 0 che non interrompe l'esecuzione*/
         } catch (MathException e) {
             System.debug(e.getMessage());
         }
     }
+
+    /* dichiaro le eccezioni come classi che estendono la superclasse Exception
+    e terminano anch'esse con Exception nel nome */
+    class PersException extends Exception {}
+    class MathException extends Exception {}
 
     /* testo il metodo esegui nel main */
     public static void main () {
@@ -48,9 +53,4 @@ public with sharing class MathEx {
         esegui('/', 3, 0);
         esegui('?', 3, 5);
     }
-
-    /* dichiaro le eccezioni come classi che estendono la superclasse Exception
-    e terminano anch'esse con Exception nel nome */
-    class PersException extends Exception {}
-    class MathException extends Exception {}
 }
