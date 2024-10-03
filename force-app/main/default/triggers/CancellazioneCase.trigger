@@ -1,4 +1,4 @@
-trigger CancellazioneCase on Case (before insert) {
+trigger CancellazioneCase on Case (after insert) {
 
         List<Case> casesToInsert = new List<Case>();
     
@@ -8,8 +8,8 @@ trigger CancellazioneCase on Case (before insert) {
                 /* Creazione di un case di avvenuta cancellazione */
                 Case followUpCase = new Case(
                     Subject = 'Avvenuta cancellazione contatto',
-                    ParentId = c.Id,  /* Relazione con il case di cancellazione */
-                    ContactId = c.ContactId
+                    ParentId = c.Id  /* Relazione con il case di cancellazione */
+                    /* ContactId = c.ContactId */
                 );
                 casesToInsert.add(followUpCase);
             }
