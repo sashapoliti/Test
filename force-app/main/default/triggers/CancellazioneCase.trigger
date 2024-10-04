@@ -19,5 +19,4 @@ trigger CancellazioneCase on Case (after insert) {
         if (!casesToInsert.isEmpty()) {
             insert casesToInsert;
         }
-
 }

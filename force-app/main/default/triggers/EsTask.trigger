@@ -22,5 +22,4 @@ trigger EsTask on Task (after insert, after update) {
     /* Non controllo la query se sia vuota perché account è required
     quindi faccio direttamente update */
     update accountUpdate;
-
 }
