@@ -16,7 +16,7 @@ global with sharing class EsempioBatch implements Database.Batchable<sObject> {
             Account newObjScope = (Account) objScope;
 
             newObjScope.Description = 'Aggiornato con batch apex';
-            newObjScope.Phone = 123;
+            newObjScope.Phone = '123';
 
             updatedAccountList.add(newObjScope); // Add records to the List
             System.debug('Value of updatedAccountList ' + updatedAccountList);
@@ -32,7 +32,6 @@ global with sharing class EsempioBatch implements Database.Batchable<sObject> {
 
     /* metodo finish per terminare il batch */
     global void finish(Database.BatchableContext BC) {
-        Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
         Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
 
         // Below code will fetch the job Id
