@@ -18,7 +18,7 @@ public with sharing class EsFlowTrigger {
         List<Account> accUpdate = new List<Account> ();
 
         /* capire se l'account è stato creato o updated(esiste già?) 
-        la data di creazione e quella di modifica*/
+        controllo data di creazione e quella di modifica*/
         for (AccountInput a : input) {
             if (a.account.CreatedDate == a.account.LastModifiedDate) {
                 accCreate.add(a.account);
@@ -38,6 +38,7 @@ public with sharing class EsFlowTrigger {
         }
     }
 
+    /* metodo per la creazione dei contatti */
     private static void createContacts(List<Account> accCreate) {
 
         /* lista di contatti da creare */
@@ -55,6 +56,7 @@ public with sharing class EsFlowTrigger {
         insert conCreate;
     }
 
+    /* metodo per l'aggiornamento */
     private static void updateContacts(List<Account> accUpdate) {
 
         /* lista di contatti da aggiornare */
