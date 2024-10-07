@@ -9,7 +9,7 @@ trigger EsCase on Case (after update) {
 
     for (Case c : Trigger.new) {
         /* Controllo venga chiuso e non era già chiuso */
-        if (c.Status == 'Escalated' && Trigger.OldMap.get(c.Id).Status != 'Escalated') {
+        if (c.Status == 'Closed' && Trigger.OldMap.get(c.Id).Status != 'Closed') {
           /* Controllo che sia stata associata ad un account */
           if (c.AccountId != null) {
 

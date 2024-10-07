@@ -17,7 +17,7 @@ trigger EsContact on Contact (before insert, before update) {
 
     /* Controllo se ci sono email da controllare */
     if (!emailControllo.isEmpty()) {
-        /* Query per i contatti con la stessa email in map (così posso prendere Email facilmente)*/
+        /* Query per i contatti con la stessa email in list (così posso prendere Email facilmente)*/
         List <Contact> contattiDuplicati = [
             SELECT Id, Email
             FROM Contact
