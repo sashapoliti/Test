@@ -38,6 +38,8 @@ public with sharing class EsFlowTrigger {
         }
     }
 
+
+
     /* metodo per la creazione dei contatti */
     private static void createContacts(List<Account> accCreate) {
 
@@ -55,6 +57,8 @@ public with sharing class EsFlowTrigger {
         fosse vuota, questo metodo non verrebbe neanche usato*/
         insert conCreate;
     }
+
+    
 
     /* metodo per l'aggiornamento */
     private static void updateContacts(List<Account> accUpdate) {
