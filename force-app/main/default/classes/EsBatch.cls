@@ -12,6 +12,7 @@ global with sharing class EsBatch implements Database.Batchable<sObject> {
 
         List<Contact> contactList = new List<Contact>();
         Map<Id, Account> accountMap = new Map<Id, Account>();
+        /* List<id> accountId = new List<Id>(); */
         List<Case> caseList = new List<Case>();
 
         for (sObject objScope : scope) {
@@ -31,7 +32,8 @@ global with sharing class EsBatch implements Database.Batchable<sObject> {
                         Description = 'Aggiornato con batch apex'
                     );
                     accountMap.put(newObjScope.AccountId, a);
-                } else {
+                    /* accountId.add(newObjScope.AccountId); */
+                } else /* if (!accountId.contains(newObjScope.AccountId)) */ {
                     Case c = new Case(
                         AccountId = newObjScope.AccountId,
                         Subject = 'Già aggiornato con batch apex'
