@@ -12,8 +12,8 @@ trigger EsTask on Task (after insert, after update) {
         if (t.Status == 'Completed') {
             /* Creo l'account */
             Account a = new Account(
-                Id = t.AccountId,
-                UltimoTaskCompletato__c = t.CompletedDateTime /* creato campo custom dato che LastActivityDate è solo lettura  */
+                Id = t.AccountId
+                /* UltimoTaskCompletato__c = t.CompletedDateTime */ /* creato campo custom dato che LastActivityDate è solo lettura  */
             );
             accountUpdate.add(a);            
         }        
