@@ -67,6 +67,6 @@ private class TestEsTestClass {
 
         /* cerco l'asset creato dal trigger */
         List<Asset> a = [SELECT Id, Name FROM Asset WHERE Name = 'Asset per prova classi test'];
-        System.assert(!a.isEmpty());
+        System.assert(!a.isEmpty() && a[0].AccountId == '001Qy00000XKAMKIA5');
     }
 }
