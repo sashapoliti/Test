@@ -30,12 +30,15 @@ global with sharing class CaseManager {
         return c.Id;
     }
 
-    /* terzo metodo deve fare delete di un case con id passato */
+    /* terzo metodo deve fare delete di un case con id passato
+    non da nulla in risposta */
     @HttpDelete
     global static void deleteCase() {
         RestRequest req = RestContext.request;
         String caseId = req.requestURI.substring(req.requestURI.lastIndexOf('/')+1);
-        Case c = [SELECT Id FROM Case WHERE Id = :caseId];
+        Case c = new Case(
+            Id = caseId
+        );
         delete c;
     }
 
@@ -46,6 +49,7 @@ global with sharing class CaseManager {
         RestRequest req = RestContext.request;
         String caseId = req.requestURI.substring(req.requestURI.lastIndexOf('/')+1);
 
+        /* se l'id è presente, aggiorno, altrimenti, lo creo */
         Case c = new Case(
             Id = caseId,
             Status = status,
@@ -65,6 +69,8 @@ global with sharing class CaseManager {
         RestRequest req = RestContext.request;
         String caseId = req.requestURI.substring(req.requestURI.lastIndexOf('/')+1);
 
+        /* se status o priority non è presente, non ci mette null ma
+        lo lascia com'era precedentemente */
         Case c = new Case(
             Id = caseId,
             Status = status,
