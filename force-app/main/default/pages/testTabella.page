@@ -1,14 +1,72 @@
-<apex:page standardController="Account" recordSetvar="accounts">
-    <apex:pageBlock title="Viewing Accounts">
-        <apex: form id="theForm">
-            <apex:pageBlockSection>
-                <apex:datalist var="a" value="{!accounts}" type="1">
-                    {!a.name}
-                </apex:dataList>
+<apex:page controller="ControllerProva">
+    <!-- il form per l'aggiunta del nuovo contatto -->
+    <apex:form id="contactForm">
+        <h2>Aggiungi Nuovo Contatto</h2>
+        <apex:pageBlock title="Nuovo Contatto">
+            <apex:pageBlockSection columns="2">
+                <apex:inputField value="{!newContact.FirstName}" label="First Name"/>
+                <apex:inputField value="{!newContact.LastName}" label="Last Name"/>
+                <apex:inputField value="{!newContact.Email}" label="Email"/>
+                <apex:inputField value="{!newContact.Phone}" label="Phone"/>
             </apex:pageBlockSection>
-            <apex:panelGrid columns="2">
-                <apex:commandLink <apex:commandLink action="{!previous}">Previous</apex: commandlink> action="{!next}">Next</apex:commandlink>
-        </apex:panelGrid>
-        </apex:form>
-    </apex:pageBlock>
+            <apex:commandButton value="Salva Contatto" action="{!createContact}" reRender="contactForm, rerenderTable" />
+        </apex:pageBlock>
+    </apex:form>
+    <!-- la tabella -->   
+            <table id="rerenderTable" class="miaTabella">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <apex:repeat value="{!contacts}" var="contact" id="repeatContacts">
+                        <tr>
+                            <td>{!contact.Id}</td>
+                            <td>{!contact.FirstName}</td>
+                            <td>{!contact.LastName}</td>
+                            <td>{!contact.Email}</td>
+                            <td>{!contact.Phone}</td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+            </table>
+
+    <!-- stile -->
+    <style type="text/css">
+        .miaTabella table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .miaTabella tr td.dataCol {
+            display: none;
+        }
+
+        .miaTabella thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .miaTabella th, td {
+            padding: 12px 15px;
+        }
+
+        .miaTabella tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .miaTabella tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+    </style>
 </apex:page>
