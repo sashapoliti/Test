@@ -1,0 +1,29 @@
+<aura:component access="global" implements="flexipage:availableForAllPageTypes">
+  <aura:attribute name="displayV" type="String" default="" />
+  <aura:attribute name="num1" type="Double" default="" />
+  <aura:attribute name="num2" type="Double" default="" />
+  <aura:attribute name="operazione" type="String" default="" />
+  <aura:attribute name="risultato" type="String" default="false" />
+
+  <div class="calcolatrice">
+    <input type="text" id="display" value="{!v.displayV}" disabled="true" /><br />
+    <lightning:button onclick="{!c.svuotaTutto}" label="C" class="svuota" />
+    <lightning:button onclick="{!c.cancella}" label="←" />
+    <lightning:button onclick="{!c.scegliOperatore}" label="/" />
+    <lightning:button onclick="{!c.scegliOperatore}" label="x" /> <br />
+    <lightning:button onclick="{!c.scriviSuDisplay}" label="7" />
+    <lightning:button onclick="{!c.scriviSuDisplay}" label="8" />
+    <lightning:button onclick="{!c.scriviSuDisplay}" label="9" />
+    <lightning:button onclick="{!c.scegliOperatore}" label="-" /> <br />
+    <lightning:button onclick="{!c.scriviSuDisplay}" label="4" />
+    <lightning:button onclick="{!c.scriviSuDisplay}" label="5" />
+    <lightning:button onclick="{!c.scriviSuDisplay}" label="6" />
+    <lightning:button onclick="{!c.scegliOperatore}" label="+" /> <br />
+    <lightning:button onclick="{!c.scriviSuDisplay}" label="1" />
+    <lightning:button onclick="{!c.scriviSuDisplay}" label="2" />
+    <lightning:button onclick="{!c.scriviSuDisplay}" label="3" />
+    <lightning:button onclick="{!c.calcola}" label="=" /> <br />
+    <lightning:button onclick="{!c.scriviSuDisplay}" label="0" class="zero" />
+    <lightning:button onclick="{!c.scriviSuDisplay}" label="." />
+  </div>
+</aura:component>

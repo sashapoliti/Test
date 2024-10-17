@@ -1,0 +1,58 @@
+.THIS {
+  font-family: "Roboto", sans-serif;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+.THIS.calcolatrice {
+  background-color: pink;
+  background-image: url("/resource/kirby");
+  background-size: 250px;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border: 3px solid rgb(255, 136, 156);
+}
+.THIS #display {
+  max-width: 240px;
+  height: 40px;
+  font-size: 40px;
+  color: black;
+  text-align: right;
+  padding: 25px 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 3px solid rgb(255, 136, 156);
+}
+.THIS button {
+  color: black;
+  width: 51px;
+  height: 51px;
+  margin: 5px;
+  font-size: 20px;
+  border: none;
+  background-color: white;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+.THIS button.zero {
+  width: 112px;
+}
+.THIS button:hover {
+  color: black;
+  background-color: rgb(253, 230, 233);
+  transform: scale(1.1);
+}
+.THIS button:active {
+  background-color: rgb(255, 136, 156);
+}
+.THIS button.svuota {
+  background-image: url("/resource/kirbygif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: transparent;
+}
