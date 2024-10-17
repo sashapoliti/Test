@@ -1,4 +1,19 @@
 ({
+	/* metodo utile solo per essere richiamato
+	e riempire la tabella dopo create, non è legato a nessuna
+	funzione del controller */
+	fillTableHelper : function(component, event) {
+		let action = component.get("c.getContacts");
+		action.setCallback(this, function(response) {
+			var state = response.getState();
+			if (state == "SUCCESS") {
+				component.set("v.contactsEl", response.getReturnValue());
+			}
+		});
+		$A.enqueueAction(action);
+	},
+
+	/* metodo per creare il contatto */
     createContactHelper : function(component, event) {
 		console.log('ciao');
 		console.log(component.get("v.newContact"));		
@@ -12,7 +27,7 @@
 				console.log('Contatto creato con successo');
 				/* riempio la tabella di nuovo e
 				resetto l'attribute */
-				/* this.fillTableHelper(component, event); */
+				this.fillTableHelper(component, event);
 				component.set("v.newContact", {
 					"sObjectType": "Contact",
 					"FirstName": "",

@@ -1,7 +1,9 @@
 <aura:component implements="force:appHostable">
-    <aura:attribute name="fAtt" type="String" default="Io sono il padre"/>
+    <aura:attribute name="contactsList" type="Contact"/>
 
-    <c:componentForm />
-
-    <c:componentTable />
+    <!-- componenti figli a cui passo il parametro
+     della lista dei contatti che sarà condiviso e aggiornabile dai tre
+     in tempo reale -->
+    <c:componentForm  contactsEl="{!v.contactsList}" />
+    <c:componentTable contactsEl="{!v.contactsList}" />
 </aura:component>
