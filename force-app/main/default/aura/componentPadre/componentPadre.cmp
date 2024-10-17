@@ -1,0 +1,7 @@
+<aura:component implements="force:appHostable">
+    <aura:attribute name="fAtt" type="String" default="Io sono il padre"/>
+
+    <c:componentForm />
+
+    <c:componentTable />
+</aura:component>

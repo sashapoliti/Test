@@ -1,0 +1,34 @@
+<aura:component controller="testAuraContacts">
+    <aura:attribute name="contactsEl" type="Contact" />
+
+    <aura:handler name="init" action="{!c.fillTable}" value="{!this}" />
+
+    <!-- la tabella -->
+    <table class="miaTabella">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.contactsEl}" var="contact">
+                <tr>
+                    <td>{!contact.Id}</td>
+                    <td>{!contact.FirstName}</td>
+                    <td>{!contact.LastName}</td>
+                    <td>{!contact.Email}</td>
+                    <td>{!contact.Phone}</td>
+                    <td>
+                        <!-- bottone per eliminare il contatto -->
+                        <lightning:button label="X" value="{!contact.Id}" onclick="{!c.deleteContact}" />
+                    </td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>
