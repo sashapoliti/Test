@@ -1,18 +1,20 @@
 <apex:page controller="ControllerProva">
     <!-- il form per l'aggiunta del nuovo contatto -->
-    <apex:form id="contactForm">
-        <h2>Aggiungi Nuovo Contatto</h2>
-        <apex:pageBlock title="Nuovo Contatto">
+    <apex:form id="contactForm" styleClass="contactForm">
+        <apex:pageBlock title="Aggiungi Nuovo Contatto">
             <apex:pageBlockSection columns="2">
                 <apex:inputField value="{!newContact.FirstName}" label="First Name"/>
                 <apex:inputField value="{!newContact.LastName}" label="Last Name"/>
                 <apex:inputField value="{!newContact.Email}" label="Email"/>
                 <apex:inputField value="{!newContact.Phone}" label="Phone"/>
             </apex:pageBlockSection>
-            <apex:commandButton value="Salva Contatto" action="{!createContact}" reRender="contactForm, rerenderTable" />
+            <apex:commandButton value="Nuovo Contatto" action="{!createContact}" reRender="contactForm, rerenderTable"
+            oncomplete="window.location.reload();" />
         </apex:pageBlock>
+        
     </apex:form>
-    <!-- la tabella -->   
+    <!-- la tabella -->
+        <div class="wrapper">  
             <table id="rerenderTable" class="miaTabella">
                 <thead>
                     <tr>
@@ -21,6 +23,7 @@
                         <th>Last Name</th>
                         <th>Email</th>
                         <th>Phone</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,16 +34,32 @@
                             <td>{!contact.LastName}</td>
                             <td>{!contact.Email}</td>
                             <td>{!contact.Phone}</td>
+                            <td>
+                                <!-- bottone per eliminare il contatto -->
+                                <apex:form styleClass="delete">
+                                    <apex:commandButton value="X" action="{!deleteContact}" reRender="contactTable"
+                                    oncomplete="window.location.reload();">
+                                        <apex:param name="contactId" value="{!contact.Id}" assignTo="{!contactId}"/>
+                                    </apex:commandButton>
+                                </apex:form>
+                            </td>
                         </tr>
                     </apex:repeat>
                 </tbody>
             </table>
-
+        </div>
     <!-- stile -->
     <style type="text/css">
+        .contactForm {
+            margin: 0 auto;
+            max-width: 700px;
+        }
+        .wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
         .miaTabella table {
-            border-collapse: collapse;
-            margin: 25px 0;
             font-size: 0.9em;
             font-family: sans-serif;
             min-width: 400px;
@@ -67,6 +86,23 @@
 
         .miaTabella tbody tr:nth-of-type(even) {
             background-color: #f3f3f3;
+        }
+
+        .delete {
+            width: 20px;
+            height: 20px;
+        }
+        .delete input {
+            width: 20px;
+            height: 20px;
+            background: none;
+            background-color: rgb(214, 47, 47);
+            transition: all 0.3s ease;
+        }
+        .delete input:hover {
+            background-color: rgb(255, 0, 0);
+            cursor: pointer;
+            transform: scale(1.2);
         }
     </style>
 </apex:page>

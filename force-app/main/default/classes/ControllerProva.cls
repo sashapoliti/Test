@@ -3,6 +3,7 @@ public with sharing class ControllerProva {
     /* attributi */
     public List<Contact> contacts { get; set; }
     public Contact newContact { get; set; }
+    public Id contactId { get; set; }
 
     /* costruttore */
     public ControllerProva() {
@@ -21,6 +22,18 @@ public with sharing class ControllerProva {
         try {
             insert newContact;
             newContact = new Contact();  /* reset per un nuovo inserimento */
+            getContacts();
+        } catch (Exception e) {
+            System.debug(e);
+        }
+    }
+
+    /* metodo per eliminare un contatto */
+    public void deleteContact() {
+        try {
+            Contact c = new Contact(Id = contactId);
+            delete c;
+            contactId = null;
             getContacts();
         } catch (Exception e) {
             System.debug(e);
