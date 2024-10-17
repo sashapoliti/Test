@@ -1,3 +1,48 @@
-<aura:component implements="force:appHostable" >
+<aura:component controller="testAuraContacts" implements="force:appHostable" >
+    <aura:attribute name="contactsEl" type="Contact" />
+    <aura:attribute name="newContact" type="Contact"
+        default="{ 'sObjectType': 'Contact' }" />
+
+    <aura:handler name="init" action="{!c.fillTable}" value="{!this}" />
 	
+    <!-- il form per l'aggiunta del nuovo contatto -->
+    <div class="slds-box slds-theme_default slds-p-around_large mioForm">
+        <lightning:input aura:id="form" class="slds-form-element" value="{!v.newContact.FirstName}" label="First Name" type="text" />
+        <lightning:input aura:id="form" class="slds-form-element" value="{!v.newContact.LastName}" label="Last Name" type="text" />
+        <lightning:input aura:id="form" class="slds-form-element" value="{!v.newContact.Email}" label="Email" type="text" />
+        <lightning:input aura:id="form" class="slds-form-element" value="{!v.newContact.Phone}" label="Phone" type="text" />
+        
+        <div class="slds-m-top_medium">
+            <lightning:button label="Nuovo Contatto" class="slds-button slds-button_brand" onclick="{!c.createContact}" />
+        </div>
+    </div>
+
+    <!-- la tabella -->
+    <table class="miaTabella">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.contactsEl}" var="contact">
+                <tr>
+                    <td>{!contact.Id}</td>
+                    <td>{!contact.FirstName}</td>
+                    <td>{!contact.LastName}</td>
+                    <td>{!contact.Email}</td>
+                    <td>{!contact.Phone}</td>
+                    <td>
+                        <!-- bottone per eliminare il contatto -->
+                        <lightning:button label="X" value="{!contact.Id}" onclick="{!c.deleteContact}" />
+                    </td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
 </aura:component>

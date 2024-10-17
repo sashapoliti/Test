@@ -1,5 +1,19 @@
 public with sharing class testAuraContacts {
-    public testAuraContacts() {
+    
+    @AuraEnabled
+    public static List<Contact> getContacts() {
+        return [SELECT Id, FirstName, LastName, Email, Phone FROM Contact];
+    }
 
+    @AuraEnabled
+    public static void addContact(Contact nuovo) {
+        System.debug(nuovo);
+        insert nuovo;
+    }
+
+    @AuraEnabled
+    public static void deleteContactController(Id contactId) {
+        System.debug(contactId);
+        delete new Contact(Id = contactId);
     }
 }
