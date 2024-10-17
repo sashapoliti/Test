@@ -2,7 +2,7 @@ public with sharing class testAuraContacts {
     
     @AuraEnabled
     public static List<Contact> getContacts() {
-        return [SELECT Id, FirstName, LastName, Email, Phone FROM Contact];
+        return [SELECT Id, FirstName, LastName, Email, Phone FROM Contact ORDER BY Id DESC];
     }
 
     @AuraEnabled
