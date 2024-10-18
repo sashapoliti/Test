@@ -2,8 +2,8 @@
     <aura:attribute name="contactsList" type="Contact"/>
 
     <!-- componenti figli a cui passo il parametro
-     della lista dei contatti che sarà condiviso e aggiornabile dai tre
-     in tempo reale -->
+    della lista dei contatti che sarà condiviso e aggiornabile dai tre
+    in tempo reale -->
     <c:componentForm  contactsEl="{!v.contactsList}" />
     <c:componentTable contactsEl="{!v.contactsList}" />
 </aura:component>
