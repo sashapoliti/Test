@@ -1,8 +1,13 @@
-<aura:component>
+<aura:component controller="EsAuraMethods">
     <!-- richiamo metodo add -->
     <aura:method name="add" action="{!c.add}" access="public">
         <aura:attribute name="name" type="String" />
         <aura:attribute name="phone" type="String" />
+    </aura:method>
+
+    <!-- richiamo metodo delete -->
+    <aura:method name="delete" action="{!c.delete}" access="public">
+        <aura:attribute name="id" type="String" />
     </aura:method>
         
     <!-- attribute del messaggio di avvenuta aggiunta e cancellazione -->

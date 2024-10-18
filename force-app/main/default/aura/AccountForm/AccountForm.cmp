@@ -2,6 +2,8 @@
     <!-- attribute del form -->
     <aura:attribute name="name" type="String" />
     <aura:attribute name="phone" type="String" />
+    <aura:attribute name="id" type="String" />
+
 
     <!-- form di inserimento -->
     <div class="slds-box slds-theme_default slds-p-around_large mioForm">
@@ -10,7 +12,14 @@
         
         <!-- bottone per creare il contatto -->
         <div class="slds-m-top_medium">
-            <lightning:button label="Nuovo Contatto" class="slds-button slds-button_brand" onclick="{!c.callAdd}" />
+            <lightning:button label="Nuovo Account" class="slds-button slds-button_brand" onclick="{!c.callAdd}" />
+        </div>
+
+        <!-- parte di cancellazione -->
+        <lightning:input aura:id="form" class="slds-form-element" value="{!v.id}" label="Id Account Cancellazione" type="text" />
+        <!-- bottone per creare il contatto -->
+        <div class="slds-m-top_medium">
+            <lightning:button label="Cancella Account" class="slds-button slds-button_brand" onclick="{!c.callDelete}" />
         </div>
     </div>
 
