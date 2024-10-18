@@ -34,7 +34,7 @@
         /* richiamo metodo della classe per cancellare account */
         let action = component.get("c.deleteAccount");
         action.setParams({
-            "id" : params.id
+            "accountId" : params.id
         });
         action.setCallback(this, function(response) {
             let state = response.getState();

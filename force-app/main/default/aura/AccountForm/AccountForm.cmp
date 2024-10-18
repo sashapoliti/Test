@@ -21,8 +21,9 @@
         <div class="slds-m-top_medium">
             <lightning:button label="Cancella Account" class="slds-button slds-button_brand" onclick="{!c.callDelete}" />
         </div>
+        <!-- risultato con messaggio -->
+        <c:CrudAccount aura:id="CrudFiglio" />
     </div>
 
-    <!-- risultato con messaggio -->
-    <c:CrudAccount aura:id="CrudFiglio" />
+    
 </aura:component>

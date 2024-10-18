@@ -10,7 +10,8 @@ public with sharing class EsAuraMethods {
     }
 
     @AuraEnabled
-    public static void deleteAccount(String accountId) {
+    public static void deleteAccount(Id accountId) {
+        System.debug(accountId);
         delete new Account(Id = accountId);
     }
 }
