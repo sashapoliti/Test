@@ -12,6 +12,7 @@
         <lightning:input aura:id="form" class="slds-form-element" value="{!v.newContact.Email}" label="Email" type="text" />
         <lightning:input aura:id="form" class="slds-form-element" value="{!v.newContact.Phone}" label="Phone" type="text" />
         
+        <!-- bottone per creare il contatto -->
         <div class="slds-m-top_medium">
             <lightning:button label="Nuovo Contatto" class="slds-button slds-button_brand" onclick="{!c.createContact}" />
         </div>
