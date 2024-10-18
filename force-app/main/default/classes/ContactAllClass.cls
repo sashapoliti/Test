@@ -10,4 +10,13 @@ public with sharing class ContactAllClass {
 
         return contacts;
     }
+
+    @AuraEnabled
+    public static List <Contact> deleteContacts(Id contactId, String search) {
+        Contact contact = new Contact(Id = contactId);
+        System.debug(contact);
+        delete contact;
+
+        return getContacts(search);
+    }
 }

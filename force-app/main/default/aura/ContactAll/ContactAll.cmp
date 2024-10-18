@@ -16,5 +16,5 @@
         </div>
     </div>
 
-    <c:ContactTable contactsList="{!v.contactsList}" />
+    <c:ContactTable contactsList="{!v.contactsList}" searchText="{!v.searchText}" />
 </aura:component>

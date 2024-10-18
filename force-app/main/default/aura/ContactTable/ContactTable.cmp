@@ -1,6 +1,8 @@
 <aura:component>
     <!-- attributo del component padre -->
     <aura:attribute name="contactsList" type="Contact" default="{ 'sObjectType': 'Contact' }" />
+    <aura:attribute name="searchText" type="String" default="" />
+
 
     <!-- la tabella -->
     <table class="miaTabella">
@@ -16,7 +18,7 @@
         <tbody>
             <aura:iteration items="{!v.contactsList}" var="contact">
                 <!-- riga della tabella -->
-                <c:ContactRow contact="{!contact}" contactsList="{!v.contactsList}" />
+                <c:ContactRow contact="{!contact}" contactsList="{!v.contactsList}" searchText="{!v.searchText}" />
             </aura:iteration>
         </tbody>
     </table>

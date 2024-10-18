@@ -1,8 +1,9 @@
-<aura:component>
+<aura:component controller="ContactAllClass">
 
     <!-- attributo del component padre -->
     <aura:attribute name="contact" type="Contact" default="{ 'sObjectType': 'Contact' }" />
     <aura:attribute name="contactsList" type="Contact" default="{ 'sObjectType': 'Contact' }" />
+    <aura:attribute name="searchText" type="String" default="" />
 
     <!-- riga della tabella -->
     <tr>

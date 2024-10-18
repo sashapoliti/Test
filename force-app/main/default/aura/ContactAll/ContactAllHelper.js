@@ -13,7 +13,7 @@
                 component.set("v.contactsList", response.getReturnValue());
 
                 /* resetto l'attribute */
-                component.set("v.searchText", "");
+                /* component.set("v.searchText", ""); */
 
                 console.log(component.get("v.contactsList"));
                 
