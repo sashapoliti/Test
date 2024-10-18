@@ -1,0 +1,14 @@
+<aura:component>
+    <!-- richiamo metodo add -->
+    <aura:method name="add" action="{!c.add}" access="public">
+        <aura:attribute name="name" type="String" />
+        <aura:attribute name="phone" type="String" />
+    </aura:method>
+        
+    <!-- attribute del messaggio di avvenuta aggiunta e cancellazione -->
+    <aura:attribute name="message" type="string" default=""/>
+
+    <p>
+        {!v.message}
+    </p>
+</aura:component>
