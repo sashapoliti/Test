@@ -3,6 +3,9 @@
         console.log(event.getSource().get("v.value"));
         console.log(component.get("v.searchText"));
         
+        /* mi passo sia l'id che il value search
+        che userò nella classe per richiamare i dati della
+        table */
         let action = component.get("c.deleteContacts");
         action.setParams({
             "contactId" : event.getSource().get("v.value"),
