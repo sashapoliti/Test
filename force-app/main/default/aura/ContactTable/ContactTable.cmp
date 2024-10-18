@@ -1,0 +1,24 @@
+<aura:component>
+    <!-- attributo del component padre -->
+    <aura:attribute name="contactsList" type="Contact" default="{ 'sObjectType': 'Contact' }" />
+
+    <!-- la tabella -->
+    <table class="miaTabella">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.contactsList}" var="contact">
+                <!-- riga della tabella -->
+                <c:ContactRow contact="{!contact}" contactsList="{!v.contactsList}" />
+            </aura:iteration>
+        </tbody>
+    </table>
+
+</aura:component>

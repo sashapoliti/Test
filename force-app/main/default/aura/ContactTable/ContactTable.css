@@ -1,0 +1,36 @@
+.THIS.miaTabella {
+    border-collapse: collapse;
+    margin: 25px auto;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 75%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    background-color: white;
+}
+
+.THIS.miaTabella thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.THIS.miaTabella th,
+.THIS.miaTabella td {
+    padding: 12px 15px;
+}
+
+.THIS.miaTabella td.delete {
+    text-align: center;
+}
+
+.THIS.miaTabella tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.THIS.miaTabella tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.THIS.miaTabella tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}

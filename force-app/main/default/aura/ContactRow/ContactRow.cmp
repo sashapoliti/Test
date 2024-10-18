@@ -1,0 +1,19 @@
+<aura:component>
+
+    <!-- attributo del component padre -->
+    <aura:attribute name="contact" type="Contact" default="{ 'sObjectType': 'Contact' }" />
+    <aura:attribute name="contactsList" type="Contact" default="{ 'sObjectType': 'Contact' }" />
+
+    <!-- riga della tabella -->
+    <tr>
+        <td>{!v.contact.Id}</td>
+        <td>{!v.contact.FirstName}</td>
+        <td>{!v.contact.LastName}</td>
+        <td>{!v.contact.Email}</td>
+        <td class="delete">
+            <!-- bottone per eliminare il contatto -->
+            <lightning:button label="X" value="{!v.contact.Id}" onclick="{!c.deleteContact}" />
+        </td>
+    </tr>
+
+</aura:component>
