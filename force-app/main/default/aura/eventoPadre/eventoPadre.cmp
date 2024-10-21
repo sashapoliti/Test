@@ -2,13 +2,14 @@
     <!-- handler per acchiappare evento -->
     <aura:handler name="myEvent" event="c:eventoTest" action="{!c.eventoFiglioEvento}" />
     <!-- attributi -->
-    <aura:attribute name="nuovoAccount" type="Object"/>
+    <aura:attribute name="listaAccount" type="List" default="[]"/>
+
 
     <!-- richiamo componente figlio -->
     <c:eventoFiglio />
 
     <!-- tabella -->
-    <aura:if isTrue="{!v.nuovoAccount}">
+    <aura:if isTrue="{!v.listaAccount.length > 0}">
             <table class="miaTabella">
                 <thead>
                     <tr>
@@ -18,11 +19,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <aura:iteration items="{!v.listaAccount}" var="v">
                         <tr>
-                            <td>{!v.nuovoAccount.Id}</td>
-                            <td>{!v.nuovoAccount.Name}</td>
-                            <td>{!v.nuovoAccount.Phone}</td>
+                            <td>{!v.Id}</td>
+                            <td>{!v.Name}</td>
+                            <td>{!v.Phone}</td>
                         </tr>
+                    </aura:iteration>
                 </tbody>
             </table>
         <aura:set attribute="else">

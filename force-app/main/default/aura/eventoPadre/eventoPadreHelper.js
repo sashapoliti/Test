@@ -1,12 +1,19 @@
 ({
     eventoFiglioHelper : function(component, event) {
-        /* recupero l'evento */
-        let contacts = event.getParam("newAccount");
-
-        /* Setto il valore dell'event in attributo */
-        console.log(contacts);
-        component.set("v.nuovoAccount", contacts);
+        console.log('ciao');
         
-        console.log(component.get("v.nuovoAccount"));        
+        /* recupero l'evento */
+        let contact = event.getParam("newAccount");
+        console.log(contact);
+        
+        let accountList = component.get("v.listaAccount");
+
+        accountList.push(contact);
+        console.log(accountList);
+
+        /* Setto il valore dell'event in attributo */        
+        component.set("v.listaAccount", accountList);
+        
+        console.log("Lista aggiornata di account: ", component.get("v.listaAccount"));       
     }
 })
