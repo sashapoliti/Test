@@ -1,3 +1,46 @@
 <template>
-    
+    <!-- il form per l'aggiunta del nuovo contatto -->
+        <lightning-card title="Add New Contact" icon-name="standard:contact">
+            <div class="slds-box slds-theme_default slds-p-around_large mioForm">
+                <lightning-input
+                    name="firstName"
+                    class="slds-form-element"
+                    label="Nome"
+                    value={firstName}
+                    onchange={cambiaValue}>
+                </lightning-input>
+                
+                <lightning-input
+                    name="lastName"
+                    class="slds-form-element"
+                    label="Cognome"
+                    value={lastName}
+                    onchange={cambiaValue}
+                    required>
+                </lightning-input>
+                
+                <lightning-input
+                    name="email"
+                    class="slds-form-element"
+                    label="Email"
+                    value={email}
+                    onchange={cambiaValue}
+                    type="email">
+                </lightning-input>
+                
+                <lightning-input
+                    name="phone"
+                    class="slds-form-element"
+                    label="Telefono"
+                    value={phone}
+                    onchange={cambiaValue}
+                    type="tel">
+                </lightning-input>
+                <!-- bottone per la creazione -->
+                <lightning-button
+                    label="Create Contact"
+                    onclick={createContact}>
+                </lightning-button>
+            </div>
+        </lightning-card>    
 </template>

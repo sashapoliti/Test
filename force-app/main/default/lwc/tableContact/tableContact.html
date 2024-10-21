@@ -1,0 +1,27 @@
+<template>
+    <c-form-contact></c-form-contact>
+
+    <!-- tabella -->
+    <table class="miaTabella">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={contactsList} for:item="contact">
+                <tr key={contact.Id}>
+                    <td>{contact.Id}</td>
+                    <td>{contact.FirstName}</td>
+                    <td>{contact.LastName}</td>
+                    <td>{contact.Email}</td>
+                    <td>{contact.Phone}</td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</template>
