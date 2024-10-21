@@ -1,6 +1,35 @@
 <aura:component implements="force:appHostable">
+    <!-- handler per acchiappare evento -->
+    <aura:handler name="myEvent" event="c:eventoTest" action="{!c.eventoFiglioEvento}" />
+    <!-- attributi -->
+    <aura:attribute name="nuovoAccount" type="Object"/>
 
     <!-- richiamo componente figlio -->
     <c:eventoFiglio />
+
+    <!-- tabella -->
+    <aura:if isTrue="{!v.nuovoAccount}">
+            <table class="miaTabella">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>{!v.nuovoAccount.Id}</td>
+                            <td>{!v.nuovoAccount.Name}</td>
+                            <td>{!v.nuovoAccount.Phone}</td>
+                        </tr>
+                </tbody>
+            </table>
+        <aura:set attribute="else">
+            <div class="slds-box slds-theme_default slds-p-around_medium mioP" style="background-color: white; display: flex; justify-content: center;">
+                <p class="slds-text-heading_small">Non ci sono contatti in questa sessione</p>
+            </div>
+        </aura:set>
+    </aura:if>
 
 </aura:component>

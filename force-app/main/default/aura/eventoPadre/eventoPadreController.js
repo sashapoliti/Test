@@ -1,5 +1,5 @@
 ({
-    myAction : function(component, event, helper) {
-
+    eventoFiglioEvento : function(component, event, helper) {
+        helper.eventoFiglioHelper(component, event);
     }
 })
