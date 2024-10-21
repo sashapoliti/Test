@@ -1,0 +1,6 @@
+<aura:component implements="force:appHostable">
+
+    <!-- richiamo componente figlio -->
+    <c:eventoFiglio />
+
+</aura:component>

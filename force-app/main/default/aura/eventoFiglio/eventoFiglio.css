@@ -1,0 +1,8 @@
+.THIS.mioForm {
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    background-color: white;
+}
