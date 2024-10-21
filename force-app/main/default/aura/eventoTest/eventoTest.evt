@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT">
+    <!-- attributo che viene passato -->
+    <aura:attribute name="newAccount" type="Account" />
+</aura:event>

@@ -2,6 +2,8 @@
     <!-- attribute del form -->
     <aura:attribute name="name" type="String" />
     <aura:attribute name="phone" type="String" />
+    <!-- registro l'evento -->
+    <aura:registerEvent name="myEvent" type="c:eventoTest" />
 
 
     <!-- form di inserimento -->
@@ -11,7 +13,7 @@
         
         <!-- bottone per creare il contatto -->
         <div class="slds-m-top_medium">
-            <lightning:button label="Nuovo Account" class="slds-button slds-button_brand" onclick="{!c.callAdd}" />
+            <lightning:button label="Nuovo Account" class="slds-button slds-button_brand" onclick="{!c.eventoAdd}" />
         </div>
     </div>
 </aura:component>

@@ -1,5 +1,5 @@
 ({
-    add : function(component, event, helper) {
-        helper.addHelper(component, event);
+    eventoAdd : function(component, event, helper) {
+        helper.eventoAddHelper(component, event);
     }
 })
