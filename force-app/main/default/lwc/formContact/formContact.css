@@ -1,3 +1,11 @@
-.template {
-    
+.mioCard {
+    margin: 20px auto;
+    display: block;
+    width: 600px;
+}
+
+.mioBottone {
+    margin-top: 15px;
+    margin-right: 12px;
+    text-align: right;
 }

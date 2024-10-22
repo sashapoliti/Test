@@ -40,6 +40,12 @@ export default class FormContact extends LightningElement {
             .then((result) => {
                 console.log(result);
 
+                /* Creo l'evento */
+                const event = new CustomEvent('adddone', {
+                    detail: 'Contact created successfully'
+                });
+                this.dispatchEvent(event);
+
                 /* resetto le variabili */
                 this.firstName = '';
                 this.lastName = '';

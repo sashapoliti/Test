@@ -1,5 +1,5 @@
 <template>
-    <c-form-contact></c-form-contact>
+    <c-form-contact onadddone={handleAdd}></c-form-contact>
 
     <!-- tabella -->
     <table class="miaTabella">
@@ -13,6 +13,7 @@
             </tr>
         </thead>
         <tbody>
+            <!-- for each con key sulla riga per ogni contact nella lista -->
             <template for:each={contactsList} for:item="contact">
                 <tr key={contact.Id}>
                     <td>{contact.Id}</td>

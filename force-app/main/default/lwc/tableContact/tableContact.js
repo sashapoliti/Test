@@ -21,4 +21,9 @@ export default class TableContact extends LightningElement {
                 console.log(error);
             });
     }
+
+    /* metodo che cattura l'evento del figlio */
+    handleAdd() {
+        this.prendiamoContatti();
+    }
 }
